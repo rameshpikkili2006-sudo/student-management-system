@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)file:///C:/Users/rkce/ramesh.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinematic Photography Portfolio</title>
+
+  <link href="./Cinematic Photography Portfolio_files/css2" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:#050505;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    ::-webkit-scrollbar{
+      width:10px;
+    }
+
+    ::-webkit-scrollbar-thumb{
+      background:#888;
+      border-radius:20px;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      padding:20px 60px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:999;
+      backdrop-filter:blur(10px);
+      background:rgba(0,0,0,0.3);
+    }
+
+    nav h1{
+      letter-spacing:3px;
+      font-size:28px;
+      font-weight:700;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      font-weight:500;
+      transition:0.4s;
+    }
+
+    nav ul li a:hover{
+      color:#f5b942;
+    }
+
+    /* SECTIONS */
+
+    section{
+      min-height:100vh;
+      padding:120px 70px 80px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      background:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1800&auto=format&fit=crop') center/cover no-repeat;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.55);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      animation:fadeIn 2s ease;
+    }
+
+    .hero h2{
+      font-size:5rem;
+      letter-spacing:5px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      max-width:700px;
+      margin:auto;
+      line-height:1.8;
+      color:#ddd;
+      font-size:18px;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:30px;
+      padding:15px 40px;
+      border:1px solid #fff;
+      color:white;
+      text-decoration:none;
+      transition:0.5s;
+    }
+
+    .btn:hover{
+      background:white;
+      color:black;
+    }
+
+    /* TITLES */
+
+    .title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .title h2{
+      font-size:3rem;
+      margin-bottom:15px;
+      text-transform:uppercase;
+      letter-spacing:3px;
+    }
+
+    .title p{
+      color:#aaa;
+      max-width:700px;
+      margin:auto;
+      line-height:1.7;
+    }
+
+    /* MASONRY GALLERY */
+
+    .masonry{
+      column-count:3;
+      column-gap:20px;
+    }
+
+    .item{
+      position:relative;
+      margin-bottom:20px;
+      overflow:hidden;
+      border-radius:15px;
+      cursor:pointer;
+    }
+
+    .item img{
+      width:100%;
+      display:block;
+      transition:1s ease;
+      border-radius:15px;
+    }
+
+    .item:hover img{
+      transform:scale(1.12);
+      filter:brightness(0.5);
+    }
+
+    .overlay{
+      position:absolute;
+      inset:0;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      opacity:0;
+      transition:0.7s;
+      text-align:center;
+      padding:20px;
+    }
+
+    .overlay h3{
+      font-size:24px;
+      transform:translateY(40px);
+      transition:0.6s;
+    }
+
+    .item:hover .overlay{
+      opacity:1;
+    }
+
+    .item:hover .overlay h3{
+      transform:translateY(0);
+    }
+
+    /* ABOUT */
+
+    .about-container{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .about-container img{
+      width:100%;
+      border-radius:20px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .about-text p{
+      color:#ccc;
+      line-height:1.9;
+      margin-bottom:20px;
+    }
+
+    /* SERVICES */
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .service-box{
+      padding:40px;
+      border:1px solid rgba(255,255,255,0.1);
+      background:rgba(255,255,255,0.03);
+      border-radius:20px;
+      transition:0.5s;
+    }
+
+    .service-box:hover{
+      transform:translateY(-10px);
+      background:#111;
+      box-shadow:0 15px 40px rgba(0,0,0,0.5);
+    }
+
+    .service-box h3{
+      margin-bottom:20px;
+      color:#f5b942;
+    }
+
+    .service-box p{
+      color:#bbb;
+      line-height:1.7;
+    }
+
+    /* STATS */
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:30px;
+      text-align:center;
+    }
+
+    .stat{
+      padding:50px 20px;
+      background:#111;
+      border-radius:20px;
+    }
+
+    .stat h3{
+      font-size:3rem;
+      color:#f5b942;
+    }
+
+    .stat p{
+      margin-top:10px;
+      color:#aaa;
+    }
+
+    /* TESTIMONIALS */
+
+    .testimonials{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .testimonial{
+      background:#111;
+      padding:40px;
+      border-radius:20px;
+      transition:0.5s;
+    }
+
+    .testimonial:hover{
+      transform:scale(1.03);
+    }
+
+    .testimonial p{
+      color:#ccc;
+      line-height:1.8;
+    }
+
+    .testimonial h4{
+      margin-top:20px;
+      color:#f5b942;
+    }
+
+    /* CONTACT */
+
+    form{
+      max-width:700px;
+      margin:auto;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    input,textarea{
+      padding:18px;
+      border:none;
+      background:#111;
+      color:white;
+      border-radius:10px;
+    }
+
+    textarea{
+      height:180px;
+      resize:none;
+    }
+
+    button{
+      padding:18px;
+      border:none;
+      background:#f5b942;
+      color:black;
+      font-weight:700;
+      border-radius:10px;
+      cursor:pointer;
+      transition:0.5s;
+    }
+
+    button:hover{
+      transform:scale(1.05);
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:40px;
+      text-align:center;
+      background:#000;
+      color:#888;
+    }
+
+    /* CINEMATIC ANIMATIONS */
+
+    .reveal{
+      opacity:0;
+      transform:translateY(80px);
+      transition:1.2s ease;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      nav{
+        padding:20px;
+      }
+
+      nav ul{
+        gap:15px;
+        font-size:14px;
+      }
+
+      .hero h2{
+        font-size:3rem;
+      }
+
+      .masonry{
+        column-count:2;
+      }
+
+      .about-container{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:600px){
+
+      .masonry{
+        column-count:1;
+      }
+
+      section{
+        padding:120px 20px 70px;
+      }
+
+      .hero h2{
+        font-size:2.2rem;
+      }
+
+      nav ul{
+        display:none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <h1>LUMINA</h1>
+
+    <ul>
+      <li><a href="file:///C:/Users/rkce/ramesh.html#home">Home</a></li>
+      <li><a href="file:///C:/Users/rkce/ramesh.html#gallery">Gallery</a></li>
+      <li><a href="file:///C:/Users/rkce/ramesh.html#about">About</a></li>
+      <li><a href="file:///C:/Users/rkce/ramesh.html#services">Services</a></li>
+      <li><a href="file:///C:/Users/rkce/ramesh.html#stats">Stats</a></li>
+      <li><a href="file:///C:/Users/rkce/ramesh.html#testimonials">Reviews</a></li>
+      <li><a href="file:///C:/Users/rkce/ramesh.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE 1 -->
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2>CINEMATIC STORIES</h2>
+      <p>
+        Fullscreen immersive photography portfolio with cinematic transitions,
+        elegant animations, and modern masonry gallery experience.
+      </p>
+
+      <a href="file:///C:/Users/rkce/ramesh.html#gallery" class="btn">Explore Gallery</a>
+    </div>
+  </section>
+
+  <!-- PAGE 2 -->
+
+  <section id="gallery">
+
+    <div class="title reveal active">
+      <h2>Gallery</h2>
+      <p>
+        Beautiful masonry layout with hover effects and cinematic visuals.
+      </p>
+    </div>
+
+    <div class="masonry">
+
+      <div class="item reveal active">
+        <img src="./Cinematic Photography Portfolio_files/photo-1493246507139-91e8fad9978e">
+        <div class="overlay">
+          <h3>Mountain Dreams</h3>
+        </div>
+      </div>
+
+      <div class="item reveal active">
+        <img src="./Cinematic Photography Portfolio_files/photo-1506744038136-46273834b3fb">
+        <div class="overlay">
+          <h3>Silent Forest</h3>
+        </div>
+      </div>
+
+      <div class="item reveal active">
+        <img src="./Cinematic Photography Portfolio_files/photo-1519608487953-e999c86e7455">
+        <div class="overlay">
+          <h3>Ocean Light</h3>
+        </div>
+      </div>
+
+      <div class="item reveal active">
+        <img src="./Cinematic Photography Portfolio_files/photo-1500534314209-a25ddb2bd429">
+        <div class="overlay">
+          <h3>Golden Desert</h3>
+        </div>
+      </div>
+
+      <div class="item reveal active">
+        <img src="./Cinematic Photography Portfolio_files/photo-1521295121783-8a321d551ad2">
+        <div class="overlay">
+          <h3>Urban Nights</h3>
+        </div>
+      </div>
+
+      <div class="item reveal active">
+        <img src="./Cinematic Photography Portfolio_files/photo-1507525428034-b723cf961d3e">
+        <div class="overlay">
+          <h3>Blue Waves</h3>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PAGE 3 -->
+
+  <section id="about">
+
+    <div class="title reveal active">
+      <h2>About</h2>
+    </div>
+
+    <div class="about-container">
+
+      <img class="reveal active" src="./Cinematic Photography Portfolio_files/photo-1500648767791-00dcc994a43e">
+
+      <div class="about-text reveal active">
+        <p>
+          We create cinematic visual experiences that combine storytelling,
+          emotion, and artistic photography into immersive digital journeys.
+        </p>
+
+        <p>
+          Every frame is designed to feel timeless and emotionally powerful,
+          blending modern web design with cinematic atmosphere.
+        </p>
+
+        <a href="file:///C:/Users/rkce/ramesh.html#" class="btn">Read More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 4 -->
+
+  <section id="services">
+
+    <div class="title reveal active">
+      <h2>Services</h2>
+    </div>
+
+    <div class="services">
+
+      <div class="service-box reveal active">
+        <h3>Wedding Films</h3>
+        <p>
+          Emotional cinematic wedding storytelling and photography.
+        </p>
+      </div>
+
+      <div class="service-box reveal active">
+        <h3>Travel Shoots</h3>
+        <p>
+          Stunning landscape and destination photography projects.
+        </p>
+      </div>
+
+      <div class="service-box reveal active">
+        <h3>Portrait Studio</h3>
+        <p>
+          Creative portrait experiences with cinematic lighting.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PAGE 5 -->
+
+  <section id="stats">
+
+    <div class="title reveal active">
+      <h2>Achievements</h2>
+    </div>
+
+    <div class="stats">
+
+      <div class="stat reveal active">
+        <h3>500+</h3>
+        <p>Projects</p>
+      </div>
+
+      <div class="stat reveal active">
+        <h3>120K</h3>
+        <p>Followers</p>
+      </div>
+
+      <div class="stat reveal active">
+        <h3>18</h3>
+        <p>Awards</p>
+      </div>
+
+      <div class="stat reveal active">
+        <h3>12</h3>
+        <p>Countries</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PAGE 6 -->
+
+  <section id="testimonials">
+
+    <div class="title reveal active">
+      <h2>Testimonials</h2>
+    </div>
+
+    <div class="testimonials">
+
+      <div class="testimonial reveal active">
+        <p>
+          “Absolutely breathtaking visuals and stunning cinematic feel.”
+        </p>
+        <h4>- Sophia</h4>
+      </div>
+
+      <div class="testimonial reveal active">
+        <p>
+          “One of the most immersive photography websites I've seen.”
+        </p>
+        <h4>- Daniel</h4>
+      </div>
+
+      <div class="testimonial reveal active">
+        <p>
+          “Elegant transitions and premium fullscreen experience.”
+        </p>
+        <h4>- Olivia</h4>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PAGE 7 -->
+
+  <section id="contact">
+
+    <div class="title reveal active">
+      <h2>Contact</h2>
+      <p>Book your cinematic photography experience today.</p>
+    </div>
+
+    <form class="reveal active">
+      <input type="text" placeholder="Your Name">
+      <input type="email" placeholder="Email Address">
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2026 LUMINA Photography Portfolio — Cinematic Experience
+  </footer>
+
+  <script>
+
+    // REVEAL ON SCROLL
+
+    function reveal(){
+
+      let reveals = document.querySelectorAll(".reveal");
+
+      reveals.forEach((el)=>{
+
+        let windowHeight = window.innerHeight;
+        let revealTop = el.getBoundingClientRect().top;
+        let revealPoint = 100;
+
+        if(revealTop < windowHeight - revealPoint){
+          el.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll",reveal);
+
+    reveal();
+
+  </script>
+
+
+</body></html>
