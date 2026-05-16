@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)file:///C:/Users/rkce/ramesh.html# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Valley School</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f4f7fb;
+      color:#333;
+    }
+
+    header{
+      background:#0d47a1;
+      color:white;
+      padding:15px 20px;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .navbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:bold;
+    }
+
+    .nav-links{
+      display:flex;
+      list-style:none;
+      gap:20px;
+    }
+
+    .nav-links a{
+      color:white;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    .nav-links a:hover{
+      color:yellow;
+    }
+
+    .menu-toggle{
+      display:none;
+      font-size:28px;
+      cursor:pointer;
+    }
+
+    .page{
+      display:none;
+      padding:40px 20px;
+      min-height:100vh;
+    }
+
+    .active{
+      display:block;
+    }
+
+    .hero{
+      background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      color:white;
+      text-align:center;
+      padding:120px 20px;
+      border-radius:10px;
+    }
+
+    .hero h1{
+      font-size:50px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:22px;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:20px;
+      background:#ff9800;
+      color:white;
+      padding:12px 25px;
+      text-decoration:none;
+      border-radius:5px;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:30px;
+      color:#0d47a1;
+      font-size:36px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:15px;
+    }
+
+    .gallery img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      border-radius:10px;
+    }
+
+    form{
+      max-width:600px;
+      margin:auto;
+      background:white;
+      padding:30px;
+      border-radius:10px;
+      box-shadow:0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    form input,
+    form textarea,
+    form select{
+      width:100%;
+      padding:12px;
+      margin-bottom:15px;
+      border:1px solid #ccc;
+      border-radius:5px;
+    }
+
+    form button{
+      background:#0d47a1;
+      color:white;
+      padding:12px 20px;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+    }
+
+    .notice-list{
+      list-style:none;
+      max-width:700px;
+      margin:auto;
+    }
+
+    .notice-list li{
+      background:white;
+      margin-bottom:15px;
+      padding:20px;
+      border-left:6px solid #0d47a1;
+      border-radius:5px;
+      box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    footer{
+      background:#0d47a1;
+      color:white;
+      text-align:center;
+      padding:15px;
+    }
+
+    @media(max-width:768px){
+
+      .nav-links{
+        display:none;
+        width:100%;
+        flex-direction:column;
+        margin-top:10px;
+      }
+
+      .nav-links.show{
+        display:flex;
+      }
+
+      .menu-toggle{
+        display:block;
+      }
+
+      .hero h1{
+        font-size:34px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar">
+
+    <div class="logo">Green Valley School</div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="file:///C:/Users/rkce/ramesh.html#" onclick="showPage(&#39;home&#39;)">Home</a></li>
+      <li><a href="file:///C:/Users/rkce/ramesh.html#" onclick="showPage(&#39;about&#39;)">About</a></li>
+      <li><a href="file:///C:/Users/rkce/ramesh.html#" onclick="showPage(&#39;admissions&#39;)">Admissions</a></li>
+      <li><a href="file:///C:/Users/rkce/ramesh.html#" onclick="showPage(&#39;faculty&#39;)">Faculty</a></li>
+      <li><a href="file:///C:/Users/rkce/ramesh.html#" onclick="showPage(&#39;events&#39;)">Events</a></li>
+      <li><a href="file:///C:/Users/rkce/ramesh.html#" onclick="showPage(&#39;announcements&#39;)">Announcements</a></li>
+      <li><a href="file:///C:/Users/rkce/ramesh.html#" onclick="showPage(&#39;contact&#39;)">Contact</a></li>
+    </ul>
+
+  </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="page active">
+  <div class="hero">
+    <h1>Welcome to Green Valley School</h1>
+    <p>Empowering Students Through Knowledge &amp; Excellence</p>
+    <a href="file:///C:/Users/rkce/ramesh.html#" class="btn" onclick="showPage(&#39;admissions&#39;)">Apply Now</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="page">
+  <h2 class="section-title">About Our School</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Our Mission</h3>
+      <p>To provide quality education and build future leaders.</p>
+    </div>
+
+    <div class="card">
+      <h3>Our Vision</h3>
+      <p>Creating innovative and responsible citizens.</p>
+    </div>
+
+    <div class="card">
+      <h3>Campus Life</h3>
+      <p>Modern classrooms, sports facilities, labs, and libraries.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ADMISSIONS -->
+<section id="admissions" class="page">
+
+  <h2 class="section-title">Admissions</h2>
+
+  <form>
+    <input type="text" placeholder="Student Name" required="">
+    <input type="email" placeholder="Parent Email" required="">
+    <input type="tel" placeholder="Phone Number" required="">
+
+    <select required="">
+      <option value="">Select Grade</option>
+      <option>Grade 1</option>
+      <option>Grade 2</option>
+      <option>Grade 3</option>
+      <option>Grade 4</option>
+      <option>Grade 5</option>
+    </select>
+
+    <textarea rows="5" placeholder="Additional Information"></textarea>
+
+    <button type="submit">Submit Application</button>
+
+  </form>
+
+</section>
+
+<!-- FACULTY -->
+<section id="faculty" class="page">
+
+  <h2 class="section-title">Faculty Details</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Dr. Sarah Johnson</h3>
+      <p>Principal</p>
+    </div>
+
+    <div class="card">
+      <h3>Mr. David Wilson</h3>
+      <p>Mathematics Teacher</p>
+    </div>
+
+    <div class="card">
+      <h3>Mrs. Emily Carter</h3>
+      <p>Science Teacher</p>
+    </div>
+
+    <div class="card">
+      <h3>Ms. Olivia Brown</h3>
+      <p>English Teacher</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- EVENTS -->
+<section id="events" class="page">
+
+  <h2 class="section-title">Events Gallery</h2>
+
+  <div class="gallery">
+
+    <img src="./Green Valley School_files/photo-1509062522246-3755977927d7">
+    <img src="./Green Valley School_files/photo-1522202176988-66273c2fd55f">
+    <img src="./Green Valley School_files/photo-1516321497487-e288fb19713f">
+    <img src="./Green Valley School_files/photo-1497486751825-1233686d5d80">
+
+  </div>
+
+</section>
+
+<!-- ANNOUNCEMENTS -->
+<section id="announcements" class="page">
+
+  <h2 class="section-title">Latest Announcements</h2>
+
+  <ul class="notice-list">
+
+    <li>
+      <h3>Annual Sports Day</h3>
+      <p>Sports Day will be conducted on 25th June 2026.</p>
+    </li>
+
+    <li>
+      <h3>Summer Vacation</h3>
+      <p>School will remain closed from 1st May to 15th June.</p>
+    </li>
+
+    <li>
+      <h3>Science Exhibition</h3>
+      <p>Students are invited to participate in the annual science fair.</p>
+    </li>
+
+  </ul>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="page">
+
+  <h2 class="section-title">Contact Us</h2>
+
+  <form>
+
+    <input type="text" placeholder="Your Name" required="">
+
+    <input type="email" placeholder="Your Email" required="">
+
+    <textarea rows="5" placeholder="Your Message"></textarea>
+
+    <button type="submit">Send Message</button>
+
+  </form>
+
+</section>
+
+<footer>
+  <p>© 2026 Green Valley School | All Rights Reserved</p>
+</footer>
+
+<script>
+
+  function showPage(pageId){
+
+    const pages = document.querySelectorAll('.page');
+
+    pages.forEach(page => {
+      page.classList.remove('active');
+    });
+
+    document.getElementById(pageId).classList.add('active');
+
+    document.getElementById('navLinks').classList.remove('show');
+  }
+
+  function toggleMenu(){
+    document.getElementById('navLinks').classList.toggle('show');
+  }
+
+</script>
+
+
+</body></html>
